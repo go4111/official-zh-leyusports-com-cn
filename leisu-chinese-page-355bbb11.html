@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title>雷速 · 中文资料索引站</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fef3e2 0%, #f9d9b0 50%, #f7cf9a 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5rem 1rem 2.5rem;
+            color: #3b2a1c;
+            line-height: 1.6;
+        }
+
+        .page {
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        /* 卡片风格 */
+        .card {
+            background: #fffdf9;
+            border-radius: 32px;
+            box-shadow: 0 12px 28px rgba(160, 100, 30, 0.12), 0 4px 12px rgba(180, 100, 20, 0.08);
+            padding: 2.2rem 2rem;
+            margin-bottom: 2.2rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 18px 36px rgba(140, 80, 20, 0.15);
+        }
+
+        /* 暖色渐变按钮感链接 */
+        .btn-link {
+            display: inline-block;
+            background: linear-gradient(to right, #f09b5a, #e5803e);
+            color: #fff;
+            font-weight: 550;
+            padding: 0.5rem 1.4rem;
+            border-radius: 60px;
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            box-shadow: 0 4px 10px rgba(200, 100, 30, 0.2);
+            transition: transform 0.15s, box-shadow 0.2s;
+            font-size: 0.98rem;
+            border: none;
+        }
+
+        .btn-link:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 16px rgba(190, 90, 20, 0.25);
+            background: linear-gradient(to right, #f5a867, #e67a3a);
+        }
+
+        .btn-link:active {
+            transform: scale(0.97);
+        }
+
+        /* hero区 */
+        .hero {
+            text-align: center;
+            padding: 2.8rem 1.5rem 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #b05d2c, #7c3f1a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .sub {
+            font-size: 1.25rem;
+            color: #6d4a2a;
+            max-width: 600px;
+            margin: 0.6rem auto 1.4rem;
+            font-weight: 400;
+        }
+
+        .hero .meta-chip {
+            display: inline-block;
+            background: #fff3e6;
+            border: 1px solid #e7c8ad;
+            border-radius: 60px;
+            padding: 0.3rem 1.2rem;
+            font-size: 0.85rem;
+            color: #6a4226;
+            letter-spacing: 0.3px;
+        }
+
+        /* 两栏 / 网格 */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .feature-item {
+            background: #fefaf4;
+            padding: 1.4rem 1.2rem;
+            border-radius: 28px;
+            border: 1px solid #eedbc9;
+        }
+
+        .feature-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.4rem;
+            color: #7a4d27;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #4f3823;
+        }
+
+        .icon-emoji {
+            font-size: 1.3rem;
+            line-height: 1;
+        }
+
+        /* FAQ 摘要 */
+        .faq-item {
+            border-bottom: 1px solid #e9d9c8;
+            padding: 1rem 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            color: #613e22;
+            margin-bottom: 0.3rem;
+            font-size: 1rem;
+        }
+
+        .faq-a {
+            color: #4e3726;
+            font-size: 0.95rem;
+        }
+
+        /* 底部导航 */
+        .bottom-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem 2rem;
+            padding: 0.8rem 0 0.2rem;
+        }
+
+        .bottom-links a {
+            color: #6a4022;
+            text-decoration: none;
+            border-bottom: 1px dotted #bf9d7b;
+            font-weight: 450;
+            transition: color 0.15s;
+        }
+
+        .bottom-links a:hover {
+            color: #b25d27;
+            border-bottom-color: #b25d27;
+        }
+
+        .fine-print {
+            text-align: center;
+            color: #7b5f44;
+            font-size: 0.85rem;
+            margin-top: 1.8rem;
+            border-top: 1px solid #dac2ab;
+            padding-top: 1.5rem;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #e3cfbb;
+            margin: 1rem 0;
+        }
+
+        /* 响应式 */
+        @media (max-width: 750px) {
+            body { padding: 1rem 0.8rem; }
+            .hero h1 { font-size: 2.2rem; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .grid-3 { grid-template-columns: 1fr; gap: 1rem; }
+            .card { padding: 1.6rem 1.2rem; border-radius: 28px; }
+            .hero { padding: 1.8rem 0.5rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.9rem; }
+            .btn-link { padding: 0.4rem 1.2rem; font-size: 0.9rem; }
+            .bottom-links { flex-direction: column; align-items: center; gap: 0.7rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero 区 -->
+    <div class="card hero">
+        <div class="meta-chip">📂 资料索引 · 知识整理</div>
+        <h1>雷速 · 中文信息锚点</h1>
+        <p class="sub">从散落的信息碎片到结构化存档 —— 围绕中文学习与语言资源，构建可检索的知识脉络。</p>
+        <div style="margin-top: 1.2rem;">
+            <a href="https://leisu-chinese.com" class="btn-link">雷速</a>
+        </div>
+    </div>
+
+    <!-- 优势区：信息整理角度 -->
+    <div class="card">
+        <h2 style="color: #683d1e; font-weight: 560; margin-bottom: 1.2rem;">📌 为什么从「资料整理」切入</h2>
+        <p style="margin-bottom: 1rem;">中文学习资源零散分布在各类网站、词典、论坛与教材中。查找一个词的用法往往需要打开五六个页面，且结果参差不齐。<a href="https://leisu-chinese.com" style="color: #b25d27; font-weight: 500; text-decoration: underline wavy #dba37c 1px;">雷速</a> 尝试做一件事：将高频误用、易混淆词、语法辨析、常见搭配等资料按主题索引，减少搜索成本。</p>
+        <div class="grid-2" style="margin-top: 1.4rem;">
+            <div class="feature-item">
+                <h3><span class="icon-emoji">🧩</span> 聚合标签</h3>
+                <p>按「近义词」「量词」「介词」「书面语/口语」等标签归类，一篇笔记对应一个语言点。</p>
+            </div>
+            <div class="feature-item">
+                <h3><span class="icon-emoji">📎</span> 引用来源</h3>
+                <p>每个条目尽量标注参考出处：词典、语料库或典型用例，方便回溯验证。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 说明区：场景 & 方法 -->
+    <div class="card">
+        <h2 style="color: #683d1e; font-weight: 560; margin-bottom: 1rem;">🔍 典型使用场景</h2>
+        <div class="grid-3">
+            <div style="background: #fcf6ee; border-radius: 24px; padding: 1.2rem;">
+                <div style="font-weight: 600; color: #7a4d27;">✏️ 写作自查</div>
+                <p style="margin-top: 0.3rem; font-size: 0.95rem;">不确定「对于」和「关于」的区别？索引页直接列出对比与例句。</p>
+            </div>
+            <div style="background: #fcf6ee; border-radius: 24px; padding: 1.2rem;">
+                <div style="font-weight: 600; color: #7a4d27;">📖 备课参考</div>
+                <p style="margin-top: 0.3rem; font-size: 0.95rem;">教师可快速找到一组近义词的层级解释，节省整理教案的时间。</p>
+            </div>
+            <div style="background: #fcf6ee; border-radius: 24px; padding: 1.2rem;">
+                <div style="font-weight: 600; color: #7a4d27;">📚 自学延伸</div>
+                <p style="margin-top: 0.3rem; font-size: 0.95rem;">通过关联索引发现新的知识点，形成网状而非线性的学习路径。</p>
+            </div>
+        </div>
+        <hr>
+        <p style="font-size: 0.95rem; color: #4f3823;">目前收录的内容偏向中高级汉语学习者与教学者，但初级学习者也能从中找到清晰的基础辨析。每个专题页都保持「定义 → 对比 → 例句 → 常见偏误」的结构，追求可读性与实用性平衡。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="card">
+        <h2 style="color: #683d1e; font-weight: 560; margin-bottom: 0.8rem;">❓ 常见疑问摘要</h2>
+        <div class="faq-item">
+            <div class="faq-q">· 资料会定期更新吗？</div>
+            <div class="faq-a">索引内容随语言使用变化逐步增补，重点更新教材中高频出现的语言点以及学习者提问较多的条目。不追求日更，但保证每一条都有具体内容。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">· 可以贡献或纠错吗？</div>
+            <div class="faq-a">当前以内部整理为主，如果你发现条目中有不准确或过时的用例，欢迎通过页面底部反馈渠道联系。我们会核实并修订。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">· 和词典网站有什么不同？</div>
+            <div class="faq-a">词典偏重释义与翻译，而 <a href="https://leisu-chinese.com" style="color: #b25d27; text-decoration: underline dotted #b47d58;">雷速</a> 更偏向「用法笔记」与「对比索引」，更像一份可查阅的知识地图。</div>
+        </div>
+    </div>
+
+    <!-- 底部链接 -->
+    <div class="card" style="padding-bottom: 1.6rem;">
+        <div class="bottom-links">
+            <a href="https://leisu-chinese.com">雷速</a>
+            <a href="#">资料分类</a>
+            <a href="#">关于索引</a>
+            <a href="#">联系与反馈</a>
+        </div>
+        <div class="fine-print">
+            内容仅供参考，不构成语言学习承诺。部分素材来自公开语料与参考文献。<br>
+            © 资料索引站 · 非商业使用
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
