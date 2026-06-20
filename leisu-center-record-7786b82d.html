@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雷速 · 稳定入口与页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', '宋体', 'SimSun', serif;
+            background-color: #f9f6f0;
+            color: #2c2c2a;
+            line-height: 1.7;
+            padding: 0 1.5rem 2.5rem;
+        }
+
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+            background: #fefcf8;
+            box-shadow: 0 0 30px rgba(0,0,0,0.02);
+            padding: 2rem 2.5rem 3rem;
+            border-radius: 4px;
+        }
+
+        /* hero 横幅区 */
+        .hero {
+            text-align: center;
+            padding: 2.2rem 0 1.8rem;
+            border-bottom: 1px solid #e6dfd3;
+            margin-bottom: 2.2rem;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            color: #3e3b35;
+        }
+
+        .hero h1 span {
+            font-weight: 600;
+            color: #8b7a64;
+        }
+
+        .hero .sub {
+            margin-top: 0.6rem;
+            font-size: 0.92rem;
+            color: #7d766b;
+            letter-spacing: 0.02em;
+        }
+
+        /* 引用块 / 提示框 */
+        .notice-block {
+            background: #f3efe8;
+            border-left: 4px solid #c0b097;
+            padding: 1.2rem 1.6rem;
+            margin: 1.8rem 0 2.2rem;
+            font-size: 0.96rem;
+            border-radius: 0 8px 8px 0;
+            color: #4b4841;
+        }
+
+        .notice-block strong {
+            color: #5f5240;
+            font-weight: 600;
+        }
+
+        /* 介绍段落 */
+        .section-intro p {
+            margin-bottom: 1.4rem;
+            text-indent: 2em;
+            font-size: 1rem;
+        }
+
+        .section-intro p:first-of-type {
+            margin-top: 0.5rem;
+        }
+
+        /* 小标题装饰 */
+        .topic-title {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #4d453b;
+            border-bottom: 1px dashed #d9cfc0;
+            padding-bottom: 0.35rem;
+            margin: 2.2rem 0 1rem;
+            letter-spacing: 0.02em;
+        }
+
+        .topic-title:first-of-type {
+            margin-top: 0.2rem;
+        }
+
+        /* 卡片场景 (杂志风格) */
+        .scene-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 1.8rem 0 2rem;
+        }
+
+        .scene-card {
+            flex: 1 1 200px;
+            background: #faf7f2;
+            padding: 1.2rem 1.2rem 1rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            border: 1px solid #ece3d9;
+        }
+
+        .scene-card h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #5f5446;
+            margin-bottom: 0.45rem;
+            letter-spacing: 0.01em;
+        }
+
+        .scene-card p {
+            font-size: 0.9rem;
+            color: #5a5549;
+            line-height: 1.6;
+            text-indent: 0;
+        }
+
+        /* 页尾访问提示 */
+        .footer-note {
+            margin-top: 2.8rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #e6dfd3;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #5e584d;
+        }
+
+        .footer-note a {
+            color: #6b5f4d;
+            text-decoration: none;
+            border-bottom: 1px dotted #b5aa99;
+            transition: border-color 0.2s;
+        }
+
+        .footer-note a:hover {
+            border-bottom: 1px solid #7f715b;
+            color: #3e372b;
+        }
+
+        /* FAQ 摘要式列表 */
+        .faq-mini {
+            margin-top: 2rem;
+            background: #f7f3ec;
+            padding: 1.2rem 1.6rem 1.4rem;
+            border-radius: 12px;
+        }
+
+        .faq-mini h4 {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #534c40;
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.02em;
+        }
+
+        .faq-mini ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .faq-mini li {
+            font-size: 0.9rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e6ddd1;
+            color: #544f45;
+        }
+
+        .faq-mini li:last-child {
+            border-bottom: none;
+        }
+
+        .faq-mini li strong {
+            font-weight: 500;
+            color: #4f463b;
+            margin-right: 0.3rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body {
+                padding: 0 0.8rem 1.8rem;
+            }
+            .container {
+                padding: 1.2rem 1.2rem 2rem;
+            }
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            .scene-cards {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            .section-intro p {
+                text-indent: 1.8em;
+            }
+            .notice-block {
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- hero 横幅 -->
+        <div class="hero">
+            <h1>· <span>雷速</span> ·</h1>
+            <div class="sub">一份关于稳定入口与页面本身的说明</div>
+        </div>
+
+        <!-- 背景说明 / 提示框 -->
+        <div class="notice-block">
+            <strong>关于本页：</strong> 这里不以推广为目的，而是尝试从一个使用者的视角，聊聊“雷速”作为一个稳定入口所承载的日常意义。下文所写均为真实使用中的观察与体会。
+        </div>
+
+        <!-- 三段自然介绍 -->
+        <div class="section-intro">
+
+            <p>第一次接触到 <a href="https://leisu-center.com">雷速</a> 这个站点，其实源于一次简单的搜索需要。那时候我需要一个能快速获取信息的页面，不希望被过多广告或跳转干扰。后来逐渐发现，这个入口比想象中更安静——它的首页结构清晰，没有刻意堆积内容，反而让人愿意多停留一会，慢慢翻阅。</p>
+
+            <p>从设计的角度来说，一个稳定、干净的页面，往往意味着背后有清晰的逻辑和克制的表达。雷速的页面没有冗长的引导，也没有闪烁的提示，它只是把该呈现的信息按照一种自然的节奏排列出来。对于经常需要查阅资料或整理素材的人来说，这种平实的叙述方式反而更让人觉得可靠。</p>
+
+            <p>在使用过程中我也注意到，内容更新并不频繁，但每一次出现的新条目都保留着一致的调性。这种稳定感，或许正是许多人在信息过载的时代里所寻找的——一个不需要频繁适应变化的角落。就像一本放在手边的杂志，每次翻开都能找到熟悉的位置。</p>
+        </div>
+
+        <!-- 特点 / 场景卡片（杂志专题风格） -->
+        <div class="topic-title">日常使用场景</div>
+        <div class="scene-cards">
+            <div class="scene-card">
+                <h3>翻阅与摘录</h3>
+                <p>适合在需要安静阅读时打开，页面字体与留白都经过考量，不会造成视觉疲劳。</p>
+            </div>
+            <div class="scene-card">
+                <h3>信息参照</h3>
+                <p>由于结构稳定，可以快速定位到需要的部分，作为资料对照的起点也非常自然。</p>
+            </div>
+            <div class="scene-card">
+                <h3>随手分享</h3>
+                <p>干净的页面在分享时不会产生误解，对方打开后第一眼就能理解页面意图。</p>
+            </div>
+        </div>
+
+        <!-- FAQ 摘要（轻量问答） -->
+        <div class="faq-mini">
+            <h4>常见想法 · 简短回应</h4>
+            <ul>
+                <li><strong>Q：</strong> 这个页面适合每天访问吗？<strong>A：</strong> 如果内容方向与你的兴趣相符，完全适合作为日常浏览的一站。</li>
+                <li><strong>Q：</strong> 页面内容会经常变化吗？<strong>A：</strong> 整体结构长期保持稳定，更新节奏平缓，不会突然大改。</li>
+                <li><strong>Q：</strong> 为什么强调“稳定入口”？<strong>A：</strong> 因为一个不变的、可信赖的地址本身就能节省很多适应成本。</li>
+            </ul>
+        </div>
+
+        <!-- 页尾访问提示 -->
+        <div class="footer-note">
+            如果你对以上内容产生了好奇，不妨记住这个地址：<a href="https://leisu-center.com">雷速</a>。<br>
+            它就在那里，和它呈现的内容一样，不喧闹，也不改变自己的位置。
+        </div>
+
+    </div>
+    <!-- 创作种子仅用于内部变化，不呈现在页面中 -->
+</body>
+</html>
